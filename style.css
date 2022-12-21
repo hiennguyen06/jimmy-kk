@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #111;
+  color: #fefefe;
+  font-family: "Press Start 2P", cursive;
+  -webkit-font-smoothing: antialiased;
+  background: url(https://lebassis.com/wp-content/uploads/2021/07/background2.png);
+}
+
+p {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.puzzle {
+  background: #111;
+  background-blend-mode: multiply;
+  width: 92vw;
+  max-width: 400px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  /* border: 8px solid #fff; */
+}
+
+.puzzle > * {
+  z-index: 1;
+}
+
+.grid {
+  border: 3px solid #fff;
+  grid-column-end: span 3;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-areas:
+    "A B C"
+    "D E F"
+    "G H I";
+  background: #fff;
+  /* box-shadow: inset 0 0 2em 0 hsl(360, 98%, 2%); */
+}
+
+.tile,
+.answer {
+  height: 0;
+  padding-bottom: 94%;
+  grid-area: var(--area, auto);
+  border: none;
+  background: url(https://images.ctfassets.net/tmixeg4ntbht/1LfwI03caMissfKMZGfHrP/e4352a9ce89df4c2c676289f26a933cd/jimmykk.jpg);
+  background-size: 300%;
+}
+
+.tile {
+  cursor: pointer;
+}
+
+.tile--empty {
+  cursor: auto;
+}
+
+.tile:focus {
+  outline: 3px solid #feea00;
+}
+
+.tile[disabled] {
+  cursor: not-allowed;
+}
+
+.answer {
+  grid-column-end: span 1;
+  width: 100%;
+  justify-self: flex-end;
+  background-size: 100%;
+  box-shadow: inset 0 0 0 0.2em #fff;
+}
+
+.tile--empty {
+  background: transparent;
+}
+.tile--1 {
+  background-position: top left;
+}
+.tile--2 {
+  background-position: top center;
+}
+.tile--3 {
+  background-position: top right;
+}
+.tile--4 {
+  background-position: center left;
+}
+.tile--5 {
+  background-position: center;
+}
+.tile--6 {
+  background-position: center right;
+}
+.tile--7 {
+  background-position: bottom left;
+}
+.tile--8 {
+  background-position: bottom center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.heading span {
+  font-size: 1em;
+  line-height: 2.4em;
+}
+
+.heading {
+  align-self: center;
+  grid-column-end: span 2;
+  text-align: left;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: scale(0.6);
+    transition: opacity, scale, 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+p {
+  padding: 0 1em;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.reset-btn {
+  background: #ff5438;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  color: #111;
+  border: 4px solid #111;
+  border-radius: 8px;
+}
+
+.moves-wrapper h2 {
+  font-size: 30px;
+  color: #111;
+}
