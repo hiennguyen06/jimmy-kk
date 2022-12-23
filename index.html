@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>Vite App</title>
     <link
       href="https://fonts.googleapis.com/css?family=Maven+Pro|Yrsa|Press+Start+2P"
@@ -18,7 +17,7 @@
       </div>
       <div class="puzzle">
         <div class="heading">
-          <h2>Complete the puzzle to reveal your gift</h2>
+          <h2>Complete the puzzle to reveal your gift!</h2>
         </div>
         <div class="answer"></div>
         <div class="grid">
@@ -34,8 +33,18 @@
         </div>
       </div>
       <button class="reset-btn js-reset-btn">Start Again</button>
+      <button class="reset-btn js-reveal-btn">Test</button>
     </div>
-
+    <div class="canvas-wrapper">
+      <div class="message">
+        <h2>
+          Happy Holidays Jimmy. This is your present which you can find under
+          the tree 🤣
+        </h2>
+      </div>
+      <canvas class="canvas"></canvas>
+      <button class="reset-btn js-close-btn">Close</button>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

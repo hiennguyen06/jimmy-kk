@@ -11,6 +11,7 @@ body {
   font-family: "Press Start 2P", cursive;
   -webkit-font-smoothing: antialiased;
   background: url(https://lebassis.com/wp-content/uploads/2021/07/background2.png);
+  overflow: hidden;
 }
 
 .container {
@@ -122,15 +123,11 @@ h2 {
   line-height: 1.2;
 }
 
-.heading span {
-  font-size: 1em;
-  line-height: 2.4em;
-}
-
 .heading {
   align-self: center;
   grid-column-end: span 2;
   text-align: left;
+  min-height: 87px;
 }
 
 @keyframes popIn {
@@ -169,7 +166,8 @@ a {
   transition: all 0.2s ease-out;
 }
 
-.reset-btn:hover {
+.reset-btn:hover,
+.reset-btn:active {
   background: #feea00;
 }
 
@@ -184,4 +182,51 @@ a {
     padding: 16px;
     width: 100%;
   }
+  .js-close-btn {
+    width: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 352px) {
+  .heading h2 {
+    font-size: 14px;
+  }
+
+  .puzzle {
+    grid-gap: 1em;
+  }
+}
+
+.canvas-wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  transform: translateY(0);
+  background-color: #13d89e;
+  transition: transform 0.3s ease-in;
+  position: fixed;
+  display: grid;
+  place-items: center;
+}
+
+.canvas {
+  position: relative;
+  top: 0;
+}
+
+.show-canvas {
+  transform: translateY(-100vh);
+}
+
+.js-close-btn {
+  z-index: 3;
+  background: #ffce00;
+}
+
+.message {
+  color: #111;
+  text-align: center;
+  z-index: 3;
+  max-width: 400px;
+  margin: 0 auto;
 }

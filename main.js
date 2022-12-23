@@ -1,4 +1,6 @@
 import { wrapGrid } from "animate-css-grid";
+import "./canvas";
+import "./style.css";
 
 // Initiate CSS Grid animation tool
 const grid = document.querySelector(".grid");
@@ -82,6 +84,8 @@ const isComplete = (tiles) => {
     heading.style = `
 			animation: popIn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		`;
+  } else {
+    heading.children[0].innerHTML = "Complete the puzzle to reveal your gift!";
   }
 };
 
@@ -143,4 +147,18 @@ resetBtn.addEventListener("click", () => {
   turns = 0;
   document.getElementById("moves").innerText = turns;
   initGame();
+});
+
+// Transition pages
+const revealBtn = document.querySelector(".js-reveal-btn");
+const canvasWrapper = document.querySelector(".canvas-wrapper");
+revealBtn.addEventListener("click", (e) => {
+  // container.classList.add("show-canvas");
+  canvasWrapper.classList.add("show-canvas");
+});
+
+// close present button
+const closeBtn = document.querySelector(".js-close-btn");
+closeBtn.addEventListener("click", () => {
+  canvasWrapper.classList.remove("show-canvas");
 });
