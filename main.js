@@ -30,6 +30,11 @@ const areaKeys = {
 
 let turns = 0;
 
+// show button
+const showButton = () => {
+  showBtn.style.display = "block";
+};
+
 // Add click listener to all tiles
 tiles.map((tile) => {
   tile.addEventListener("click", (event) => {
@@ -80,10 +85,11 @@ const isComplete = (tiles) => {
 
   // Compare the current tiles with the areaKeys keys
   if (currentTilesString == Object.keys(areaKeys).toString()) {
-    heading.children[0].innerHTML = "You win!";
+    heading.children[0].innerHTML = "You won!";
     heading.style = `
 			animation: popIn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		`;
+    showButton();
   } else {
     heading.children[0].innerHTML = "Complete the puzzle to reveal your gift!";
   }
@@ -155,12 +161,14 @@ function startTimer(duration, display) {
 
     if (--timer < 0) {
       clearInterval(countdown);
+      heading.children[0].innerHTML = "You lost! The timer beat you.";
+      showButton();
     }
   }, 1000);
 }
 
 const startCountdown = () => {
-  var twoMinutes = 6,
+  var twoMinutes = 120,
     display = document.querySelector("#time");
   startTimer(twoMinutes, display);
 };
@@ -171,15 +179,14 @@ setTimeout(() => {
 }, 2000);
 
 resetBtn.addEventListener("click", () => {
-  turns = 0;
   document.getElementById("moves").innerText = turns;
   initGame();
 });
 
 // Transition pages
-const revealBtn = document.querySelector(".js-reveal-btn");
+const showBtn = document.querySelector(".js-show-btn");
 const canvasWrapper = document.querySelector(".canvas-wrapper");
-revealBtn.addEventListener("click", (e) => {
+showBtn.addEventListener("click", (e) => {
   // container.classList.add("show-canvas");
   canvasWrapper.classList.add("show-canvas");
 });
