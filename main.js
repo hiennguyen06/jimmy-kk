@@ -179,14 +179,10 @@ resetBtn.addEventListener("click", () => {
 // Transition pages
 const revealBtn = document.querySelector(".js-reveal-btn");
 const canvasWrapper = document.querySelector(".canvas-wrapper");
-// revealBtn.addEventListener("click", (e) => {
-//   // container.classList.add("show-canvas");
-//   canvasWrapper.classList.add("show-canvas");
-// });
-
-setTimeout(() => {
+revealBtn.addEventListener("click", (e) => {
+  // container.classList.add("show-canvas");
   canvasWrapper.classList.add("show-canvas");
-}, 12000);
+});
 
 // close present button
 const closeBtn = document.querySelector(".js-close-btn");

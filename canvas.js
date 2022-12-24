@@ -29,7 +29,7 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // Light
-const light = new PointLight(0xffffff, 3, 100);
+const light = new THREE.PointLight(0xffffff, 3, 100);
 light.position.set(0, 10, 10);
 scene.add(light);
 
