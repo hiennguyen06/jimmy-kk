@@ -67,7 +67,7 @@ function init() {
     0.1,
     1000
   );
-  camera.position.z = 400;
+  camera.position.z = 700;
 
   scene = new THREE.Scene();
 
@@ -75,7 +75,7 @@ function init() {
     "http://cdn.shopify.com/s/files/1/0248/7303/products/wrappingpaper-australiananimals-christmasv2copy.jpg?v=1658740431"
   );
 
-  const geometry = new THREE.BoxGeometry(200, 200, 200);
+  const geometry = new THREE.BoxGeometry(300, 200, 100);
   const material = new THREE.MeshBasicMaterial({ map: texture });
 
   mesh = new THREE.Mesh(geometry, material);
@@ -87,8 +87,6 @@ function init() {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-
-  //
 
   window.addEventListener("resize", onWindowResize);
 }
