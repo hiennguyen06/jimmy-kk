@@ -72,7 +72,7 @@ function init() {
   scene = new THREE.Scene();
 
   const texture = new THREE.TextureLoader().load(
-    "http://cdn.shopify.com/s/files/1/0248/7303/products/wrappingpaper-australiananimals-christmasv2copy.jpg?v=1658740431"
+    "https://images.ctfassets.net/tmixeg4ntbht/1LfwI03caMissfKMZGfHrP/e4352a9ce89df4c2c676289f26a933cd/jimmykk.jpg"
   );
 
   const geometry = new THREE.BoxGeometry(300, 200, 100);
