@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
 const canvas = document.querySelector(".canvas");
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setClearColor(0xffffff, 0);
-renderer.setSize(window.innerWidth, window.innerHeight / 1.75);
+renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Texture
 const texture = new THREE.TextureLoader().load(
@@ -21,7 +21,7 @@ const texture = new THREE.TextureLoader().load(
 );
 
 // Object
-const geometry = new THREE.BoxGeometry(2, 2, 1);
+const geometry = new THREE.BoxGeometry(3, 2, 1);
 const material = new THREE.MeshStandardMaterial({
   map: texture,
 });
@@ -34,7 +34,7 @@ light.position.set(0, 10, 10);
 scene.add(light);
 
 const controls = new OrbitControls(camera, canvas);
-camera.position.z = 5;
+camera.position.z = 8;
 
 function animate() {
   requestAnimationFrame(animate);
@@ -47,7 +47,7 @@ function animate() {
 animate();
 
 window.addEventListener("resize", () => {
-  renderer.setSize(window.innerWidth, window.innerHeight / 1.75);
+  renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 });
