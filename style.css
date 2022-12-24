@@ -77,7 +77,7 @@ p {
 }
 
 .tile:focus,
-.tile:active {
+.tile:focus-visible {
   outline: 3px solid #feea00;
 }
 
