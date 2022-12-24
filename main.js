@@ -1,5 +1,5 @@
 import { wrapGrid } from "animate-css-grid";
-import "./canvas";
+// import "./canvas";
 import "./style.css";
 
 // Initiate CSS Grid animation tool

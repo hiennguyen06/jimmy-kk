@@ -16,9 +16,12 @@ body {
 
 .container {
   height: 100vh;
-  display: grid;
-  place-items: center;
+  width: 100vw;
+  max-width: 316px;
+  margin: 0 auto;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
@@ -28,14 +31,14 @@ p {
 .puzzle {
   background: #111;
   background-blend-mode: multiply;
-  max-width: 400px;
   padding: 16px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
+  grid-gap: 16px;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  margin-bottom: 40px;
 }
 
 .puzzle > * {
@@ -119,7 +122,7 @@ p {
 
 h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
@@ -149,14 +152,17 @@ a {
   color: white;
 }
 
-.reset-btn {
-  width: 400px;
+.button-wrapper {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
   background: #ff5438;
-  display: inline-block;
   position: relative;
   text-align: center;
-  font-size: 30px;
-  padding: 20px;
+  font-size: 18px;
+  padding: 16px;
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
   color: #111;
@@ -171,8 +177,14 @@ a {
   background: #feea00;
 }
 
+.moves-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px 20px 0px;
+}
+
 .moves-wrapper h2 {
-  font-size: 30px;
+  font-size: 12px;
   color: #111;
 }
 
@@ -206,24 +218,13 @@ a {
   padding: 0 16px;
 }
 
-@media (max-width: 400px) {
-  .reset-btn {
-    font-size: 18px;
-    padding: 16px;
-    width: 100%;
-  }
+@media (max-width: 375px) {
   .js-close-btn {
     width: calc(100% - 32px);
   }
-  .message {
-    width: 100%;
-    max-width: 100%;
-  }
-}
 
-@media (max-width: 352px) {
-  .heading h2 {
-    font-size: 14px;
+  .btn {
+    font-size: 16px;
   }
   .puzzle {
     grid-gap: 1em;
