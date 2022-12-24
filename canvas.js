@@ -71,7 +71,9 @@ function init() {
 
   scene = new THREE.Scene();
 
-  const texture = new THREE.TextureLoader().load("./textures/background2.png");
+  const texture = new THREE.TextureLoader().load(
+    "./public/textures/background2.png"
+  );
 
   const geometry = new THREE.BoxGeometry(300, 200, 100);
   const material = new THREE.MeshBasicMaterial({ map: texture });
