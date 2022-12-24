@@ -1,5 +1,5 @@
 import { wrapGrid } from "animate-css-grid";
-// import "./canvas";
+import "./canvas";
 import "./style.css";
 
 // Initiate CSS Grid animation tool
@@ -138,31 +138,6 @@ const initGame = () => {
   unlockTiles(emptyTile.style.getPropertyValue("--area"));
 };
 
-setTimeout(() => {
-  initGame();
-  startCountdown();
-}, 2000);
-
-resetBtn.addEventListener("click", () => {
-  turns = 0;
-  document.getElementById("moves").innerText = turns;
-  initGame();
-});
-
-// Transition pages
-// const revealBtn = document.querySelector(".js-reveal-btn");
-// const canvasWrapper = document.querySelector(".canvas-wrapper");
-// revealBtn.addEventListener("click", (e) => {
-//   // container.classList.add("show-canvas");
-//   canvasWrapper.classList.add("show-canvas");
-// });
-
-// // close present button
-// const closeBtn = document.querySelector(".js-close-btn");
-// closeBtn.addEventListener("click", () => {
-//   canvasWrapper.classList.remove("show-canvas");
-// });
-
 // Timer Function
 function startTimer(duration, display) {
   var timer = duration,
@@ -189,3 +164,32 @@ const startCountdown = () => {
     display = document.querySelector("#time");
   startTimer(twoMinutes, display);
 };
+
+setTimeout(() => {
+  initGame();
+  startCountdown();
+}, 2000);
+
+resetBtn.addEventListener("click", () => {
+  turns = 0;
+  document.getElementById("moves").innerText = turns;
+  initGame();
+});
+
+// Transition pages
+const revealBtn = document.querySelector(".js-reveal-btn");
+const canvasWrapper = document.querySelector(".canvas-wrapper");
+// revealBtn.addEventListener("click", (e) => {
+//   // container.classList.add("show-canvas");
+//   canvasWrapper.classList.add("show-canvas");
+// });
+
+setTimeout(() => {
+  canvasWrapper.classList.add("show-canvas");
+}, 12000);
+
+// close present button
+const closeBtn = document.querySelector(".js-close-btn");
+closeBtn.addEventListener("click", () => {
+  canvasWrapper.classList.remove("show-canvas");
+});
