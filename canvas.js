@@ -67,12 +67,12 @@ function init() {
     0.1,
     1000
   );
-  camera.position.z = 750;
+  camera.position.z = 800;
 
   scene = new THREE.Scene();
 
   const texture = new THREE.TextureLoader().load(
-    "./public/textures/background2.png"
+    "http://cdn.shopify.com/s/files/1/0248/7303/products/wrappingpaper-australiananimals-christmasv2copy.jpg?v=1658740431"
   );
 
   const geometry = new THREE.BoxGeometry(300, 200, 100);
