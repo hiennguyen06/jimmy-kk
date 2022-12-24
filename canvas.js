@@ -21,8 +21,8 @@ const texture = new THREE.TextureLoader().load(
 );
 
 // Object
-const geometry = new THREE.BoxGeometry(3, 2, 1);
-const material = new THREE.MeshStandardMaterial({
+const geometry = new THREE.BoxBufferGeometry(3, 2, 1);
+const material = new THREE.MeshPhongMaterial({
   map: texture,
 });
 const cube = new THREE.Mesh(geometry, material);
