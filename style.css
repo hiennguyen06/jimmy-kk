@@ -19,7 +19,7 @@ body {
   width: 100vw;
   max-width: 316px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 0px 16px;
   display: flex;
   flex-direction: column;
 }
@@ -130,7 +130,7 @@ h2 {
   align-self: center;
   grid-column-end: span 2;
   text-align: left;
-  min-height: 87px;
+  min-height: 70px;
 }
 
 @keyframes popIn {
@@ -158,6 +158,7 @@ a {
 
 .btn {
   width: 100%;
+  margin-bottom: 16px;
   background: #ff5438;
   position: relative;
   text-align: center;
@@ -180,7 +181,7 @@ a {
 .moves-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0px 20px 0px;
+  margin: 40px 0px 16px 0px;
 }
 
 .moves-wrapper h2 {

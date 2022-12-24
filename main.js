@@ -115,7 +115,6 @@ const shuffledKeys = (keys) =>
 
 const initGame = () => {
   // Begin with our in order area keys
-
   let startingAreas = Object.keys(areaKeys);
 
   // Use the inversion function to check if the keys will be solveable or not shuffled
@@ -141,6 +140,7 @@ const initGame = () => {
 
 setTimeout(() => {
   initGame();
+  startCountdown();
 }, 2000);
 
 resetBtn.addEventListener("click", () => {
@@ -150,15 +150,42 @@ resetBtn.addEventListener("click", () => {
 });
 
 // Transition pages
-const revealBtn = document.querySelector(".js-reveal-btn");
-const canvasWrapper = document.querySelector(".canvas-wrapper");
-revealBtn.addEventListener("click", (e) => {
-  // container.classList.add("show-canvas");
-  canvasWrapper.classList.add("show-canvas");
-});
+// const revealBtn = document.querySelector(".js-reveal-btn");
+// const canvasWrapper = document.querySelector(".canvas-wrapper");
+// revealBtn.addEventListener("click", (e) => {
+//   // container.classList.add("show-canvas");
+//   canvasWrapper.classList.add("show-canvas");
+// });
 
-// close present button
-const closeBtn = document.querySelector(".js-close-btn");
-closeBtn.addEventListener("click", () => {
-  canvasWrapper.classList.remove("show-canvas");
-});
+// // close present button
+// const closeBtn = document.querySelector(".js-close-btn");
+// closeBtn.addEventListener("click", () => {
+//   canvasWrapper.classList.remove("show-canvas");
+// });
+
+// Timer Function
+function startTimer(duration, display) {
+  var timer = duration,
+    minutes,
+    seconds;
+
+  const countdown = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      clearInterval(countdown);
+    }
+  }, 1000);
+}
+
+const startCountdown = () => {
+  var twoMinutes = 6,
+    display = document.querySelector("#time");
+  startTimer(twoMinutes, display);
+};
