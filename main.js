@@ -132,7 +132,8 @@ const isComplete = (tiles) => {
 			animation: popIn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		`;
   } else {
-    heading.children[0].innerHTML = "Complete the puzzle to reveal your gift!";
+    heading.children[0].innerHTML =
+      "Complete the puzzle within the time to reveal your gift!";
   }
 };
 
