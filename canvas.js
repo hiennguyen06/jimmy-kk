@@ -21,7 +21,7 @@ const texture = new THREE.TextureLoader().load(
 );
 
 // Object
-const geometry = new THREE.BoxGeometry(3, 3, 2);
+const geometry = new THREE.BoxGeometry(2, 2, 1);
 const material = new THREE.MeshStandardMaterial({
   map: texture,
 });
