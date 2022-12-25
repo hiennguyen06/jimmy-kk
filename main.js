@@ -162,6 +162,8 @@ const shuffledKeys = (keys) =>
 // Reset score and board
 
 const initGame = () => {
+  grid.style.pointerEvents = "auto";
+
   // Begin with our in order area keys
   let startingAreas = Object.keys(areaKeys);
 
@@ -185,6 +187,8 @@ const initGame = () => {
   // Unlock and lock tiles
   unlockTiles(emptyTile.style.getPropertyValue("--area"));
 };
+
+grid.style.pointerEvents = "none";
 
 setTimeout(() => {
   initGame();
