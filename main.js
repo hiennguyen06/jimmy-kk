@@ -14,6 +14,10 @@ const emptyTile = document.querySelector(".tile--empty");
 const heading = document.querySelector(".heading");
 
 const resetBtn = document.querySelector(".js-reset-btn");
+const playAgainBtn = document.querySelector(".js-play-again-btn");
+const showBtn = document.querySelector(".js-show-btn");
+
+const canvasWrapper = document.querySelector(".canvas-wrapper");
 
 // A key / value store of what areas to "unlock"
 const areaKeys = {
@@ -33,6 +37,39 @@ let turns = 0;
 // show button
 const showButton = () => {
   showBtn.style.display = "block";
+  resetBtn.style.display = "none";
+  playAgainBtn.style.display = "block";
+};
+
+// Timer Function
+function startTimer(duration, display) {
+  var timer = duration,
+    minutes,
+    seconds;
+
+  const countdown = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      clearInterval(countdown);
+      showButton();
+      grid.style.opacity = "0.6";
+      grid.style.pointerEvents = "none";
+      heading.children[0].innerHTML = "You lost! The timer beat you.";
+    }
+  }, 1000);
+}
+
+const startCountdown = () => {
+  var twoMinutes = 2,
+    display = document.querySelector("#time");
+  startTimer(twoMinutes, display);
 };
 
 // Add click listener to all tiles
@@ -144,35 +181,6 @@ const initGame = () => {
   unlockTiles(emptyTile.style.getPropertyValue("--area"));
 };
 
-// Timer Function
-function startTimer(duration, display) {
-  var timer = duration,
-    minutes,
-    seconds;
-
-  const countdown = setInterval(function () {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = minutes + ":" + seconds;
-
-    if (--timer < 0) {
-      clearInterval(countdown);
-      heading.children[0].innerHTML = "You lost! The timer beat you.";
-      showButton();
-    }
-  }, 1000);
-}
-
-const startCountdown = () => {
-  var twoMinutes = 120,
-    display = document.querySelector("#time");
-  startTimer(twoMinutes, display);
-};
-
 setTimeout(() => {
   initGame();
   startCountdown();
@@ -184,8 +192,6 @@ resetBtn.addEventListener("click", () => {
 });
 
 // Transition pages
-const showBtn = document.querySelector(".js-show-btn");
-const canvasWrapper = document.querySelector(".canvas-wrapper");
 showBtn.addEventListener("click", (e) => {
   // container.classList.add("show-canvas");
   canvasWrapper.classList.add("show-canvas");

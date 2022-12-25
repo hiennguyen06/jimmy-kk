@@ -17,11 +17,11 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Texture
 const texture = new THREE.TextureLoader().load(
-  "https://images.ctfassets.net/tmixeg4ntbht/1LfwI03caMissfKMZGfHrP/e4352a9ce89df4c2c676289f26a933cd/jimmykk.jpg"
+  "https://images.ctfassets.net/tmixeg4ntbht/1xsfUOXmL3qXEAlcJDwlD9/37d433de028fd1b91900b96e69dd67cf/wrapping_paper.jpeg?h=250"
 );
 
 // Object
-const geometry = new THREE.BoxGeometry(3, 2, 1);
+const geometry = new THREE.BoxGeometry(2, 2, 1);
 const material = new THREE.MeshStandardMaterial({
   map: texture,
 });
@@ -29,7 +29,7 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // Light
-const light = new THREE.PointLight(0xffffff, 3, 100);
+const light = new THREE.PointLight(0xffffff, 2, 100);
 light.position.set(0, 10, 10);
 scene.add(light);
 
@@ -51,58 +51,3 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 });
-
-// import * as THREE from "three";
-
-// let camera, scene, renderer;
-// let mesh;
-
-// init();
-// animate();
-
-// function init() {
-//   camera = new THREE.PerspectiveCamera(
-//     70,
-//     window.innerWidth / window.innerHeight,
-//     0.1,
-//     1000
-//   );
-//   camera.position.z = 800;
-
-//   scene = new THREE.Scene();
-
-//   const texture = new THREE.TextureLoader().load(
-//     "https://images.ctfassets.net/tmixeg4ntbht/1LfwI03caMissfKMZGfHrP/e4352a9ce89df4c2c676289f26a933cd/jimmykk.jpg"
-//   );
-
-//   const geometry = new THREE.BoxGeometry(300, 200, 100);
-//   const material = new THREE.MeshBasicMaterial({ map: texture });
-
-//   mesh = new THREE.Mesh(geometry, material);
-//   scene.add(mesh);
-
-//   const canvas = document.querySelector(".canvas");
-//   // const renderer = new THREE.WebGLRenderer({ canvas });
-
-//   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-//   renderer.setPixelRatio(window.devicePixelRatio);
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-
-//   window.addEventListener("resize", onWindowResize);
-// }
-
-// function onWindowResize() {
-//   camera.aspect = window.innerWidth / window.innerHeight;
-//   camera.updateProjectionMatrix();
-
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-// }
-
-// function animate() {
-//   requestAnimationFrame(animate);
-
-//   mesh.rotation.x += 0.005;
-//   mesh.rotation.y += 0.01;
-
-//   renderer.render(scene, camera);
-// }

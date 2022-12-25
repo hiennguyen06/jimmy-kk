@@ -189,6 +189,15 @@ a {
   background-color: #13d89e;
 }
 
+.play-again-btn {
+  display: none;
+}
+
+.play-again-btn a {
+  color: #111;
+  text-decoration: none;
+}
+
 .moves-wrapper {
   display: flex;
   justify-content: space-between;
