@@ -71,7 +71,7 @@ function startTimer(duration, display) {
 }
 
 const startCountdown = () => {
-  var twoMinutes = 120,
+  var twoMinutes = 2,
     display = document.querySelector("#time");
   startTimer(twoMinutes, display);
 };
@@ -127,7 +127,7 @@ const isComplete = (tiles) => {
   // Compare the current tiles with the areaKeys keys
   if (currentTilesString == Object.keys(areaKeys).toString()) {
     gameCompleted();
-    heading.children[0].innerHTML = "You won!";
+    heading.children[0].innerHTML = "You won! You beat the timer!";
     heading.style = `
 			animation: popIn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		`;
