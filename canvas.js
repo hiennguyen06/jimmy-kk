@@ -21,7 +21,7 @@ const texture = new THREE.TextureLoader().load(
 );
 
 // Object
-const geometry = new THREE.BoxGeometry(2, 2, 1);
+const geometry = new THREE.BoxGeometry(3, 3, 1.5);
 const material = new THREE.MeshStandardMaterial({
   map: texture,
 });
@@ -34,7 +34,7 @@ light.position.set(0, 10, 10);
 scene.add(light);
 
 const controls = new OrbitControls(camera, canvas);
-camera.position.z = 7;
+camera.position.z = 8;
 
 function animate() {
   requestAnimationFrame(animate);
