@@ -71,7 +71,7 @@ function startTimer(duration, display) {
 }
 
 const startCountdown = () => {
-  var twoMinutes = 2,
+  var twoMinutes = 90,
     display = document.querySelector("#time");
   startTimer(twoMinutes, display);
 };
