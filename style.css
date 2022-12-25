@@ -165,7 +165,7 @@ a {
 .btn {
   width: 100%;
   margin-bottom: 16px;
-  background: #ff5438;
+  background: #feea00;
   position: relative;
   text-align: center;
   font-size: 18px;
@@ -179,11 +179,6 @@ a {
   transition: all 0.2s ease-out;
 }
 
-.reset-btn:hover,
-.reset-btn:active {
-  background: #feea00;
-}
-
 .show-btn {
   display: none;
   background-color: #13d89e;
@@ -191,6 +186,7 @@ a {
 
 .play-again-btn {
   display: none;
+  background: #fff;
 }
 
 .play-again-btn a {
@@ -201,12 +197,25 @@ a {
 .moves-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 56px 0px 16px 0px;
+  margin: 48px 0px 16px 0px;
 }
 
 .moves-wrapper h2 {
-  font-size: 12px;
+  font-size: 14px;
+  color: #005eca;
+  text-align: center;
+  background: #fdecd9;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.moves-wrapper h2 > span:first-child {
+  margin-bottom: 8px;
   color: #111;
+}
+
+.moves-wrapper h2 > span {
+  display: block;
 }
 
 .canvas-wrapper {

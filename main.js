@@ -35,10 +35,12 @@ const areaKeys = {
 let turns = 0;
 
 // show button
-const showButton = () => {
+const gameCompleted = () => {
   showBtn.style.display = "block";
   resetBtn.style.display = "none";
   playAgainBtn.style.display = "block";
+  grid.style.opacity = "0.6";
+  grid.style.pointerEvents = "none";
 };
 
 // Timer Function
@@ -58,16 +60,18 @@ function startTimer(duration, display) {
 
     if (--timer < 0) {
       clearInterval(countdown);
-      showButton();
-      grid.style.opacity = "0.6";
-      grid.style.pointerEvents = "none";
-      heading.children[0].innerHTML = "You lost! The timer beat you.";
+      heading.children[0].innerHTML =
+        "You lost! The timer beat you. Show gift anyway.";
+      gameCompleted();
+    }
+    if (heading.children[0].innerHTML === "You won!") {
+      clearInterval(countdown);
     }
   }, 1000);
 }
 
 const startCountdown = () => {
-  var twoMinutes = 2,
+  var twoMinutes = 120,
     display = document.querySelector("#time");
   startTimer(twoMinutes, display);
 };
@@ -122,11 +126,11 @@ const isComplete = (tiles) => {
 
   // Compare the current tiles with the areaKeys keys
   if (currentTilesString == Object.keys(areaKeys).toString()) {
+    gameCompleted();
     heading.children[0].innerHTML = "You won!";
     heading.style = `
 			animation: popIn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		`;
-    showButton();
   } else {
     heading.children[0].innerHTML = "Complete the puzzle to reveal your gift!";
   }
