@@ -197,7 +197,7 @@ a {
 .moves-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 48px 0px 16px 0px;
+  margin: 32px 0px 16px 0px;
 }
 
 .moves-wrapper h2 {
