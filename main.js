@@ -64,7 +64,7 @@ function startTimer(duration, display) {
         "You lost! The timer beat you. Show gift anyway.";
       gameCompleted();
     }
-    if (heading.children[0].innerHTML === "You won!") {
+    if (heading.children[0].innerHTML === "You won! You beat the timer!") {
       clearInterval(countdown);
     }
   }, 1000);
